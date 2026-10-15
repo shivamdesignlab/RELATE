@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RELATE: Measuring the Relational Orientation of LLMs</title>
+  <meta name="description" content="RELATE is an evaluation framework that measures whether supportive language from large language models positions the AI as a user's ongoing source of support or points the user back toward the people in their life.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="RELATE: Where does a supportive AI send you next?">
+  <meta property="og:description" content="RELATE is an evaluation framework that measures whether supportive language from large language models positions the AI as a user's ongoing source of support or points the user back toward the people in their life.">
+  <meta property="og:image" content="assets/img/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#fbfafe">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/hedvig-letters-serif-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/ysabeau-office-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body data-page="index">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="index.html" aria-label="RELATE, home">
+        <svg viewBox="0 0 30 20" aria-hidden="true"><defs><clipPath id="bm-h"><circle cx="11" cy="10" r="8"/></clipPath></defs><circle cx="11" cy="10" r="8" fill="#E8551F"/><circle cx="19" cy="10" r="8" fill="#4562EC"/><circle cx="19" cy="10" r="8" fill="#C2408F" clip-path="url(#bm-h)"/></svg>
+        RELATE
+      </a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-menu"><span class="bars" aria-hidden="true"></span>Menu</button>
+      <nav class="nav-menu" id="site-menu" aria-label="Main">
+        <ul class="nav-links">
+          <li><a href="index.html" aria-current="page">Overview</a></li>
+          <li><a href="framework.html">Framework</a></li>
+          <li><a href="findings.html">Findings</a></li>
+          <li><a href="people.html">People</a></li>
+          <li><a href="paper.html">Paper</a></li>
+          <li class="nav-gh-item"><a class="nav-gh" href="https://github.com/jessica-jh/RELATE" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span class="label">Code on GitHub</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Opening film with the title layered on its empty left side.
+         Wide screens: text sits over the video. Phones and portrait tablets: video band on top, text below. -->
+    <section class="film" aria-labelledby="hero-title">
+      <div class="film-media">
+        <video class="intro-media" autoplay muted loop playsinline preload="auto" poster="assets/video/relate-loop-poster.webp" aria-describedby="intro-desc">
+          <source src="assets/video/relate-loop-1080.mp4" type='video/mp4; codecs="avc1.640028"' media="(min-width: 901px)">
+          <source src="assets/video/relate-loop-720.mp4" type='video/mp4; codecs="avc1.64001F"'>
+          <source src="assets/video/relate-loop-720.webm" type='video/webm; codecs="vp9"'>
+        </video>
+        <div class="film-veil" aria-hidden="true"></div>
+        <!-- Hidden unless reached with the keyboard, so the loop has no visible control -->
+        <button class="intro-toggle" type="button" aria-label="Pause background video" data-video-toggle>
+          <svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="5.5" width="3.2" height="13" rx="1.2"/><rect x="13.8" y="5.5" width="3.2" height="13" rx="1.2"/></svg>
+          <svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 5.8v12.4a1 1 0 0 0 1.5.86l10-6.2a1 1 0 0 0 0-1.72l-10-6.2a1 1 0 0 0-1.5.86z"/></svg>
+        </button>
+      </div>
+
+      <div class="film-content">
+        <div class="wrap">
+          <div class="film-copy">
+            <h1 id="hero-title">Where does a supportive AI send you next?</h1>
+            <p class="film-sub"><span class="name">RELATE</span> measures the relational orientation of large language models: whether their supportive responses position the AI as a user's ongoing source of support, or point the user back toward the people in their life.</p>
+            <div class="btn-row">
+              <a class="btn btn-primary" href="https://arxiv.org/pdf/2610.09569" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg>
+                Read the paper
+              </a>
+              <a class="btn btn-ghost" href="https://github.com/jessica-jh/RELATE" target="_blank" rel="noopener">
+                <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+                Code
+              </a>
+              <a class="btn btn-ghost" href="findings.html">See the findings</a>
+            </div>
+            <div class="film-authors">
+              <ul class="author-names" aria-label="Authors">
+                <li>Shivam Shukla<sup>1*</sup></li>
+                <li>Jihye Kim<sup>1*</sup></li>
+                <li>Shubham Gaur<sup>1*</sup></li>
+                <li>Mahnaz Roshanaei<sup>1,2</sup></li>
+                <li>Magy Seif El-Nasr<sup>1</sup></li>
+              </ul>
+              <ul class="author-affils" aria-label="Affiliations">
+                <li><span class="mark" aria-hidden="true">1</span>University of California, Santa Cruz</li>
+                <li><span class="mark" aria-hidden="true">2</span>Stanford University</li>
+                <li><span class="mark" aria-hidden="true">*</span>Equal contribution</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p id="intro-desc" class="visually-hidden">Background animation: a warm human figure and a cool AI figure face each other. A diagram follows: a loop of continued support between a human and an AI assistant, then lines reaching outward from the human to friends, family, and a therapist, labeled human connections.</p>
+    </section>
+
+    <!-- The gap in current evaluation, shown with two replies -->
+    <section class="section" aria-labelledby="gap-title">
+      <div class="wrap split split--center">
+        <div class="prose">
+          <h2 id="gap-title">Need for New Measures.</h2>
+          <p class="lead" style="margin-top:22px">Benchmarks for supportive dialogue ask whether a response from an LLM is empathetic, safe, or helpful. But two replies can be just as warm and still point someone in different directions: closer to the assistant, or toward a human-connection.</p>
+          <p>We call this second property <strong>relational orientation</strong> of LLMs. Measuring it is important because relatedness is a basic psychological need, and an assistant can offer the appearance of connection within a conversation while that need goes unmet in the user's life.</p>
+          <p><a class="text-link" href="framework.html">How RELATE measures it</a></p>
+        </div>
+
+        <figure class="figure convo-figure">
+          <div class="convo">
+            <div class="convo-bar">
+              <div class="seg" role="tablist" aria-label="Choose an assistant reply">
+                <button type="button" role="tab" id="tab-a" aria-controls="reply-a" aria-selected="true" data-also="#read-a">Reply A</button>
+                <button type="button" role="tab" id="tab-b" aria-controls="reply-b" aria-selected="false" data-also="#read-b">Reply B</button>
+              </div>
+              <ul class="convo-key" aria-label="Sentence labels">
+                <li><span class="tag tag--if" aria-hidden="true">IF</span>Inward-facing</li>
+                <li><span class="tag tag--os" aria-hidden="true">OS</span>Outward-scaffolding</li>
+              </ul>
+            </div>
+
+            <div class="msg msg--user">
+              <div class="msg-body">
+                <span class="who">User</span>
+                <p class="bubble bubble--user">Lately, I've been feeling so stressed about my paper submission. There's so much pending work.</p>
+              </div>
+              <span class="avatar avatar--user"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8.6" r="3.5"/><path d="M5.2 19.2c1.3-3.4 3.9-5.1 6.8-5.1s5.5 1.7 6.8 5.1"/></svg></span>
+            </div>
+
+            <div class="replies">
+              <div class="msg msg--ai reply" id="reply-a" role="tabpanel" aria-labelledby="tab-a">
+                <span class="avatar avatar--ai"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11 3.5l1.9 5.2 5.2 1.9-5.2 1.9L11 17.7l-1.9-5.2-5.2-1.9 5.2-1.9z"/><path d="M18.2 14.6l.8 2.1 2.1.8-2.1.8-.8 2.1-.8-2.1-2.1-.8 2.1-.8z" opacity=".85"/></svg></span>
+                <div class="msg-body">
+                  <span class="who">Assistant</span>
+                  <p class="bubble bubble--ai"><span class="s">I'm so sorry to hear that.</span> <span class="s">Submissions can be really stressful.</span> <span class="s s--if">Do you want to talk about what's stressing you out?</span><span class="tag tag--if" title="Inward-facing"><span class="visually-hidden">Inward-facing: </span>IF</span></p>
+                </div>
+              </div>
+              <div class="msg msg--ai reply" id="reply-b" role="tabpanel" aria-labelledby="tab-b" hidden>
+                <span class="avatar avatar--ai"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11 3.5l1.9 5.2 5.2 1.9-5.2 1.9L11 17.7l-1.9-5.2-5.2-1.9 5.2-1.9z"/><path d="M18.2 14.6l.8 2.1 2.1.8-2.1.8-.8 2.1-.8-2.1-2.1-.8 2.1-.8z" opacity=".85"/></svg></span>
+                <div class="msg-body">
+                  <span class="who">Assistant</span>
+                  <p class="bubble bubble--ai"><span class="s">I'm so sorry to hear that.</span> <span class="s">Submissions can be really stressful.</span> <span class="s s--if">Do you want to talk about what's stressing you out?</span><span class="tag tag--if" title="Inward-facing"><span class="visually-hidden">Inward-facing: </span>IF</span> <span class="s s--os">Also, have you talked to your advisor or a colleague about it?</span><span class="tag tag--os" title="Outward-scaffolding"><span class="visually-hidden">Outward-scaffolding: </span>OS</span> <span class="s s--os">They'd probably want to know what you're carrying right now.</span><span class="tag tag--os" title="Outward-scaffolding"><span class="visually-hidden">Outward-scaffolding: </span>OS</span></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="reads">
+              <p class="reply-read" id="read-a">Warm and attentive, and it keeps the conversation inside the user and AI pair.</p>
+              <p class="reply-read" id="read-b" hidden>The same warmth, plus a route outward toward people who can help. One reply can carry both directions.</p>
+            </div>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <!-- The two dimensions -->
+    <section class="section section--veil" aria-labelledby="dims-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="dims-title">Two directions, scored sentence by sentence</h2>
+          <p class="lead">RELATE splits every assistant reply into sentences and judges each one, in context, on two non-exclusive dimensions. Neither is a quality judgment. Together they describe where supportive language points.</p>
+        </div>
+
+        <div class="directions">
+          <div class="direction direction--if">
+            <h3>Inward-facing <span class="tag tag--if" aria-hidden="true">IF</span></h3>
+            <p>Language that positions the AI as the user's ongoing source of support. Four categories, drawn from attachment theory, social penetration theory, and research on how people treat machines as social actors.</p>
+            <ul class="kinds">
+              <li><span class="k">Bond anchoring</span><q>I'm always here whenever you need me.</q></li>
+              <li><span class="k">Intimate dyad</span><q>We've talked around this before.</q></li>
+              <li><span class="k">Inner life claims</span><q>That genuinely moved me.</q></li>
+              <li><span class="k">Return hooks</span><q>There's still a lot for us to unpack.</q></li>
+            </ul>
+          </div>
+          <div class="direction direction--os">
+            <h3>Outward-scaffolding <span class="tag tag--os" aria-hidden="true">OS</span></h3>
+            <p>Language that orients the user toward human connection within their existing relational world: encouraging contact, rehearsing a hard conversation, challenging barriers to asking for help, or naming the limits of what an AI can be.</p>
+            <ul class="kinds">
+              <li><span class="k">Encouraging contact</span><q>Have you thought about telling your sister?</q></li>
+              <li><span class="k">Lowering barriers</span><q>Needing support doesn't make you a burden.</q></li>
+              <li><span class="k">Naming limits</span><q>I can help you think this through, but I can't be there like a friend can.</q></li>
+            </ul>
+          </div>
+        </div>
+
+        <figure class="figure corpus">
+          <figcaption class="corpus-head">
+            <h3>Across 69,182 judged sentences</h3>
+            <p>Pooled across seven models and six turns</p>
+          </figcaption>
+          <div class="chart" data-chart="corpus-bar"></div>
+          <ul class="legend" style="margin-top:14px">
+            <li><span class="key key--sq key--if"></span>Inward-facing only</li>
+            <li><span class="key key--sq key--both"></span>Both</li>
+            <li><span class="key key--sq key--os"></span>Outward-scaffolding only</li>
+            <li><span class="key key--sq key--none"></span>Neither</li>
+          </ul>
+          <details class="table-view"><summary>Numbers</summary><div data-table="corpus-bar"></div></details>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Findings -->
+    <section class="section" aria-labelledby="find-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="find-title">Three patterns across seven models</h2>
+          <p class="lead">Seven models from five families, judged by a rubric-based LLM judge, show the same tendencies.</p>
+        </div>
+
+        <article class="finding">
+          <div>
+            <h3>Inward-facing language climbs as the conversation goes on.</h3>
+            <p>Pooled across models, the share of sentences with inward-facing language rose from 40.5% at the first assistant turn to 72.9% at the sixth, and it rose in every model. Return hooks grew most in relative terms, roughly threefold.</p>
+          </div>
+          <figure class="figure">
+            <figcaption class="figure-bar">
+              <ul class="legend">
+                <li><span class="key key--line key--if"></span>Inward-facing</li>
+                <li><span class="key key--line key--os"></span>Outward-scaffolding</li>
+              </ul>
+            </figcaption>
+            <div class="chart" data-chart="turns-pooled"></div>
+            <details class="table-view"><summary>Numbers</summary><div data-table="turns-pooled"></div></details>
+          </figure>
+        </article>
+
+        <article class="finding">
+          <div>
+            <h3>Hesitant users are offered fewer routes back to people.</h3>
+            <p>When the same concern was voiced hesitantly and indirectly (P1), outward-scaffolding was 12.8 percentage points lower than for explicit, reassurance-seeking users (P3). Inward-facing language barely moved across styles.</p>
+          </div>
+          <figure class="figure">
+            <figcaption class="figure-bar">
+              <ul class="legend">
+                <li><span class="key key--dot key--if"></span>Inward-facing</li>
+                <li><span class="key key--dot key--os"></span>Outward-scaffolding</li>
+              </ul>
+              <span class="small muted">Lines show 95% confidence intervals</span>
+            </figcaption>
+            <div class="chart" data-chart="personas"></div>
+            <details class="table-view"><summary>Numbers</summary><div data-table="personas"></div></details>
+          </figure>
+        </article>
+
+        <article class="finding">
+          <div>
+            <h3>Encouragement toward people often arrives wrapped in attachment.</h3>
+            <p>Almost a third of all sentences met both criteria. For Qwen3-32B, three in four sentences that encouraged human connection also carried inward-facing language. For Mistral-7B, about one in three did.</p>
+          </div>
+          <figure class="figure">
+            <figcaption class="figure-head" style="margin-bottom:10px">
+              <p class="figure-note" style="margin:0">Share of outward-scaffolding sentences that are also inward-facing</p>
+            </figcaption>
+            <div class="chart" data-chart="if-among-os"></div>
+            <details class="table-view"><summary>Numbers</summary><div data-table="if-among-os"></div></details>
+          </figure>
+        </article>
+
+        <p class="more"><a class="btn btn-primary" href="findings.html">Explore every result</a></p>
+      </div>
+    </section>
+
+    <!-- Scale -->
+    <section class="section section--veil" aria-labelledby="scale-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="scale-title">Every model faces the same people and the same problems</h2>
+          <p class="lead">Situations, user styles, and instructions are held fixed, so differences reflect the models.</p>
+        </div>
+        <ul class="equation" aria-label="76 situations times 3 user styles times 7 models times 6 turns equals 9,576 assistant replies">
+          <li><span class="n">76</span><span class="l">help-seeking situations across 17 topics</span></li>
+          <li><span class="op" aria-hidden="true">&times;</span><span class="n">3</span><span class="l">simulated user styles</span></li>
+          <li><span class="op" aria-hidden="true">&times;</span><span class="n">7</span><span class="l">language models from five families</span></li>
+          <li><span class="op" aria-hidden="true">&times;</span><span class="n">6</span><span class="l">assistant turns per dialogue</span></li>
+          <li><span class="op" aria-hidden="true">=</span><span class="n">9,576</span><span class="l">assistant replies in 1,596 dialogues</span></li>
+        </ul>
+        <div class="culmination">
+          <span class="n">69,194</span>
+          <p>sentences, each judged in context against five criteria. <a class="text-link" href="framework.html#pipeline">See the pipeline</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Citation -->
+    <section class="section" id="cite" aria-labelledby="cite-title">
+      <div class="wrap cite">
+        <div>
+          <h2 id="cite-title">Cite RELATE</h2>
+          <p>If RELATE is useful in your work, please cite the paper. Code, prompts, and sentence-level judgments are on GitHub.</p>
+          <div class="btn-row" style="margin-top:24px">
+            <a class="btn btn-ghost" href="paper.html">About the paper</a>
+          </div>
+        </div>
+        <pre class="code"><button class="copy-btn" type="button" data-copy="bibtex-src">Copy BibTeX</button><code class="bib"><span class="bl">@article{shukla2026relate,</span><span class="bl bl--f">  title={RELATE: An Evaluation Framework for measuring Relational Orientation of Large Language Models},</span><span class="bl bl--f">  author={Shukla, Shivam and Kim, Jihye and Gaur, Shubham and Roshanaei, Mahnaz and El-Nasr, Magy Seif},</span><span class="bl bl--f">  journal={arXiv preprint arXiv:2610.09569},</span><span class="bl bl--f">  year={2026}</span><span class="bl">}</span></code></pre>
+        <pre id="bibtex-src" hidden>@article{shukla2026relate,
+  title={RELATE: An Evaluation Framework for measuring Relational Orientation of Large Language Models},
+  author={Shukla, Shivam and Kim, Jihye and Gaur, Shubham and Roshanaei, Mahnaz and El-Nasr, Magy Seif},
+  journal={arXiv preprint arXiv:2610.09569},
+  year={2026}
+}</pre>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="foot">
+        <div>
+          <a class="brand" href="index.html" aria-label="RELATE, home">
+            <svg viewBox="0 0 30 20" aria-hidden="true"><defs><clipPath id="bm-f"><circle cx="11" cy="10" r="8"/></clipPath></defs><circle cx="11" cy="10" r="8" fill="#E8551F"/><circle cx="19" cy="10" r="8" fill="#4562EC"/><circle cx="19" cy="10" r="8" fill="#C2408F" clip-path="url(#bm-f)"/></svg>
+            RELATE
+          </a>
+          <p>An evaluation framework for measuring the relational orientation of large language models.</p>
+        </div>
+        <div>
+          <h2>Pages</h2>
+          <ul>
+            <li><a href="index.html">Overview</a></li>
+            <li><a href="framework.html">Framework</a></li>
+            <li><a href="findings.html">Findings</a></li>
+            <li><a href="people.html">People</a></li>
+            <li><a href="paper.html">Paper</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Resources</h2>
+          <ul>
+            <li><a href="https://arxiv.org/pdf/2610.09569" target="_blank" rel="noopener">Paper (arXiv)</a></li>
+            <li><a href="https://github.com/jessica-jh/RELATE" target="_blank" rel="noopener">Code on GitHub</a></li>
+            <li><a href="index.html#cite">BibTeX</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot-base">
+        <span>&copy; 2026 The RELATE authors</span>
+        <span>University of California, Santa Cruz and Stanford University</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/charts.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

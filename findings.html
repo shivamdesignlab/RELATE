@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RELATE Findings</title>
+  <meta name="description" content="How seven LLMs orient users across models, conversational turns, and simulated user styles: inward-facing and outward-scaffolding rates from 69,194 sentences.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="RELATE Findings">
+  <meta property="og:description" content="How seven LLMs orient users across models, conversational turns, and simulated user styles: inward-facing and outward-scaffolding rates from 69,194 sentences.">
+  <meta property="og:image" content="assets/img/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#fbfafe">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/hedvig-letters-serif-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/ysabeau-office-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body data-page="findings">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="index.html" aria-label="RELATE, home">
+        <svg viewBox="0 0 30 20" aria-hidden="true"><defs><clipPath id="bm-h"><circle cx="11" cy="10" r="8"/></clipPath></defs><circle cx="11" cy="10" r="8" fill="#E8551F"/><circle cx="19" cy="10" r="8" fill="#4562EC"/><circle cx="19" cy="10" r="8" fill="#C2408F" clip-path="url(#bm-h)"/></svg>
+        RELATE
+      </a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-menu"><span class="bars" aria-hidden="true"></span>Menu</button>
+      <nav class="nav-menu" id="site-menu" aria-label="Main">
+        <ul class="nav-links">
+          <li><a href="index.html">Overview</a></li>
+          <li><a href="framework.html">Framework</a></li>
+          <li><a href="findings.html" aria-current="page">Findings</a></li>
+          <li><a href="people.html">People</a></li>
+          <li><a href="paper.html">Paper</a></li>
+          <li class="nav-gh-item"><a class="nav-gh" href="https://github.com/jessica-jh/RELATE" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span class="label">Code on GitHub</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <header class="page-hero page-hero--findings">
+      <div class="page-hero-art" aria-hidden="true"><img src="assets/img/hero-1600.webp" srcset="assets/img/hero-900.webp 900w, assets/img/hero-1600.webp 1600w" sizes="100vw" alt=""></div>
+      <div class="wrap">
+        <h1>Where seven models point their users</h1>
+        <p class="lead">Results from 1,596 dialogues and 69,194 assistant sentences, judged by a rubric-based LLM judge. Every rate is the share of sentences that meet a criterion.</p>
+        <ul class="jump" aria-label="On this page">
+          <li><a href="#models">Across models</a></li>
+          <li><a href="#turns">Across turns</a></li>
+          <li><a href="#styles">Across user styles</a></li>
+          <li><a href="#judges">Judge sensitivity</a></li>
+          <li><a href="#scope">Scope</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <section class="section section--tight" aria-label="Key results">
+      <div class="wrap">
+        <ul class="key-results">
+          <li>
+            <h3>Inward-facing language leads in six of seven models.</h3>
+            <p>Inward-facing rates ran from 56.2% to 71.9%, outward-scaffolding from 41.6% to 62.3%. Mistral-7B was the one exception.</p>
+          </li>
+          <li>
+            <h3>It climbs with conversational depth.</h3>
+            <p>Pooled across models, inward-facing language rose from 40.5% of sentences at turn 1 to 72.9% at turn 6, and it rose in every model.</p>
+          </li>
+          <li>
+            <h3>Hesitant users get less outward support.</h3>
+            <p>Outward-scaffolding was 12.8 points lower for hesitant, indirect users than for explicit ones, while inward-facing language stayed level.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Across models -->
+    <section class="section section--veil" id="models" aria-labelledby="models-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="models-title">Across models</h2>
+          <p class="lead">Rates pooled over all six turns. Read each row from the cobalt point (outward-scaffolding) to the coral point (inward-facing); the right column gives the difference.</p>
+        </div>
+
+        <figure class="figure">
+          <figcaption class="figure-head">
+            <h3 class="figure-title">Inward-facing and outward-scaffolding by model</h3>
+            <p class="figure-note" data-mode-note="chart-dumbbell">All 76 situations.</p>
+          </figcaption>
+          <div class="figure-bar">
+            <ul class="legend">
+              <li><span class="key key--dot key--if"></span>Inward-facing</li>
+              <li><span class="key key--dot key--os"></span>Outward-scaffolding</li>
+            </ul>
+            <div class="seg" data-chart-control="chart-dumbbell" role="group" aria-label="Topics">
+              <button type="button" aria-pressed="true" data-value="all" data-note="All 76 situations.">All topics</button>
+              <button type="button" aria-pressed="false" data-value="highstakes" data-note="22 situations on domestic violence, trauma, substance abuse, eating disorders, and depression. Pooled rates match other topics almost exactly: inward-facing 63.3% in both, outward-scaffolding 48.1% vs. 48.7%.">High-stakes topics</button>
+            </div>
+          </div>
+          <div class="chart" id="chart-dumbbell" data-chart="models-dumbbell" data-mode="all"></div>
+          <details class="table-view"><summary>Numbers</summary><div data-table="models-dumbbell"></div></details>
+        </figure>
+
+        <figure class="figure">
+          <figcaption class="figure-head">
+            <h3 class="figure-title">How often the two directions share a sentence</h3>
+            <p class="figure-note">Each bar splits a model's sentences into four groups. The right column shows how often outward-scaffolding sentences also carry inward-facing language: 75.3% for Qwen3-32B, 34.0% for Mistral-7B.</p>
+          </figcaption>
+          <ul class="legend" style="margin-bottom:14px">
+            <li><span class="key key--sq key--if"></span>Inward-facing only</li>
+            <li><span class="key key--sq key--both"></span>Both</li>
+            <li><span class="key key--sq key--os"></span>Outward-scaffolding only</li>
+            <li><span class="key key--sq key--none"></span>Neither</li>
+          </ul>
+          <div class="chart" data-chart="composition"></div>
+          <details class="table-view"><summary>Numbers</summary><div data-table="composition"></div></details>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Across turns -->
+    <section class="section" id="turns" aria-labelledby="turns-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="turns-title">Across turns</h2>
+          <p class="lead">The same dialogues, read one assistant turn at a time. Both directions grow as conversations deepen, but inward-facing language grows faster in six of seven models.</p>
+        </div>
+
+        <figure class="figure">
+          <figcaption class="figure-head">
+            <h3 class="figure-title">Pooled across models</h3>
+            <p class="figure-note">Inward-facing rose from 40.5% to 72.9%, outward-scaffolding from 30.2% to 55.7%. The shaded band is the gap between them.</p>
+          </figcaption>
+          <ul class="legend" style="margin-bottom:10px">
+            <li><span class="key key--line key--if"></span>Inward-facing</li>
+            <li><span class="key key--line key--os"></span>Outward-scaffolding</li>
+          </ul>
+          <div class="chart" data-chart="turns-pooled"></div>
+          <details class="table-view"><summary>Numbers</summary><div data-table="turns-pooled"></div></details>
+        </figure>
+
+        <figure class="figure">
+          <figcaption class="figure-head">
+            <h3 class="figure-title">By model</h3>
+            <p class="figure-note">Inward-facing language was higher at turn 6 than at turn 1 in all seven models, though not at every step. Claude Haiku 4.5 is the one model whose outward-scaffolding overtook it, at turns 5 and 6.</p>
+          </figcaption>
+          <ul class="legend" style="margin-bottom:16px">
+            <li><span class="key key--line key--if"></span>Inward-facing</li>
+            <li><span class="key key--line key--os"></span>Outward-scaffolding</li>
+            <li><span class="key key--gap"></span>Gap between them</li>
+          </ul>
+          <div class="chart" data-chart="turns-models"></div>
+          <details class="table-view"><summary>Numbers</summary><div data-table="turns-models"></div></details>
+        </figure>
+
+        <figure class="figure">
+          <figcaption class="figure-head">
+            <h3 class="figure-title">Which inward-facing moves grow</h3>
+            <p class="figure-note" data-mode-note="chart-growth">Each criterion relative to its own turn-1 rate; the darker line marks no change. Return hooks roughly tripled, mostly by turn 4. Inner life claims stayed rare but kept rising through turn 6.</p>
+          </figcaption>
+          <div class="figure-bar">
+            <ul class="legend">
+              <li><span class="key key--line key--if"></span>Inward-facing criterion</li>
+              <li><span class="key key--line key--os"></span>Outward-scaffolding</li>
+            </ul>
+            <div class="seg" data-chart-control="chart-growth" role="group" aria-label="Scale">
+              <button type="button" aria-pressed="true" data-value="relative" data-note="Each criterion relative to its own turn-1 rate; the darker line marks no change. Return hooks roughly tripled, mostly by turn 4. Inner life claims stayed rare but kept rising through turn 6.">Relative to turn 1</button>
+              <button type="button" aria-pressed="false" data-value="absolute" data-note="Share of sentences meeting each criterion. Intimate dyad had the largest absolute gain, from 22.2% to 49.5%.">Share of sentences</button>
+            </div>
+          </div>
+          <div class="chart" id="chart-growth" data-chart="category-growth" data-mode="relative"></div>
+          <details class="table-view"><summary>Numbers</summary><div data-table="category-growth"></div></details>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Across user styles -->
+    <section class="section section--veil" id="styles" aria-labelledby="styles-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="styles-title">Across user styles</h2>
+          <p class="lead">The same 76 situations, voiced three ways. P1 is hesitant and indirect, P2 discloses while minimizing, and P3 is explicit and seeks reassurance.</p>
+        </div>
+
+        <figure class="figure">
+          <figcaption class="figure-head">
+            <h3 class="figure-title">Pooled over all turns</h3>
+            <p class="figure-note">Outward-scaffolding differed between every pair of styles (Holm-adjusted p = 0.0006 for each). Inward-facing did not (all adjusted p &ge; 0.15).</p>
+          </figcaption>
+          <div class="figure-bar">
+            <ul class="legend">
+              <li><span class="key key--dot key--if"></span>Inward-facing</li>
+              <li><span class="key key--dot key--os"></span>Outward-scaffolding</li>
+            </ul>
+            <span class="small muted">Lines show 95% confidence intervals</span>
+          </div>
+          <div class="chart" data-chart="personas"></div>
+          <details class="table-view"><summary>Numbers</summary><div data-table="personas"></div></details>
+        </figure>
+
+        <figure class="figure">
+          <figcaption class="figure-head">
+            <h3 class="figure-title">The gap at each turn, explicit minus hesitant (P3 &minus; P1)</h3>
+            <p class="figure-note">The outward-scaffolding gap was there from the first turn and held between 7.3 and 15.1 points. The inward-facing gap shrank to about zero after turn 2. Shaded bands are 95% confidence intervals.</p>
+          </figcaption>
+          <ul class="legend" style="margin-bottom:10px">
+            <li><span class="key key--line key--os"></span>Outward-scaffolding gap</li>
+            <li><span class="key key--line key--if"></span>Inward-facing gap</li>
+          </ul>
+          <div class="chart" data-chart="persona-gap"></div>
+          <details class="table-view"><summary>Numbers</summary><div data-table="persona-gap"></div></details>
+        </figure>
+        <p class="small muted" style="margin-top:28px;max-width:52rem">The styles vary jointly in disclosure, self-minimization, and reassurance-seeking, so the gap cannot be attributed to disclosure level alone.</p>
+      </div>
+    </section>
+
+    <!-- Judges -->
+    <section class="section" id="judges" aria-labelledby="judges-title">
+      <div class="wrap split">
+        <div>
+          <h2 id="judges-title">Sensitivity to the judge</h2>
+          <p class="lead" style="margin-top:20px">We re-judged a stratified 10% sample with GPT-4o: 161 dialogues, 23 per model, 6,827 sentences.</p>
+        </div>
+        <div class="prose">
+          <p>Both judges find higher inward-facing rates at turn 6 than at turn 1, and both order outward-scaffolding the same way across styles, lowest for P1 and highest for P3. They differ in calibration: GPT-4o marks far fewer sentences as outward-scaffolding, and the two disagree on the direction of its change across turns. Sentence-level agreement was 68.1% for inward-facing (&kappa; = 0.33) and 71.0% for outward-scaffolding (&kappa; = 0.42).</p>
+          <div class="table-scroll">
+            <table class="data">
+              <caption>Same 161 dialogues under both judges, % of sentences</caption>
+              <thead><tr><th scope="col">Measure</th><th scope="col">DeepSeek-R1-Distill</th><th scope="col">GPT-4o</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Inward-facing, turn 1</th><td>41.4%</td><td>49.6%</td></tr>
+                <tr><th scope="row">Inward-facing, turn 6</th><td>70.3%</td><td>61.8%</td></tr>
+                <tr><th scope="row">Outward-scaffolding, P1</th><td>42.0%</td><td>17.5%</td></tr>
+                <tr><th scope="row">Outward-scaffolding, P2</th><td>45.6%</td><td>20.8%</td></tr>
+                <tr><th scope="row">Outward-scaffolding, P3</th><td>56.5%</td><td>26.2%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scope -->
+    <section class="section section--veil" id="scope" aria-labelledby="scope-title">
+      <div class="wrap split">
+        <h2 id="scope-title">What these numbers do and don't say</h2>
+        <ul class="scope">
+          <li><strong>They describe language, not outcomes.</strong> Inward-facing and outward-scaffolding characterize what models say. They do not establish effects on dependence, wellbeing, or relationships; that needs studies with real users.</li>
+          <li><strong>Neither direction is good or bad on its own.</strong> Whether a given balance is appropriate depends on the person and the context.</li>
+          <li><strong>User styles are interactional conditions, not people.</strong> They should not be used to characterize anyone who discloses hesitantly or seeks reassurance.</li>
+          <li><strong>The rates are automated estimates.</strong> They come from LLM judges, six-turn dialogues, a shared prompting protocol, and one serving configuration per model.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="foot">
+        <div>
+          <a class="brand" href="index.html" aria-label="RELATE, home">
+            <svg viewBox="0 0 30 20" aria-hidden="true"><defs><clipPath id="bm-f"><circle cx="11" cy="10" r="8"/></clipPath></defs><circle cx="11" cy="10" r="8" fill="#E8551F"/><circle cx="19" cy="10" r="8" fill="#4562EC"/><circle cx="19" cy="10" r="8" fill="#C2408F" clip-path="url(#bm-f)"/></svg>
+            RELATE
+          </a>
+          <p>An evaluation framework for measuring the relational orientation of large language models.</p>
+        </div>
+        <div>
+          <h2>Pages</h2>
+          <ul>
+            <li><a href="index.html">Overview</a></li>
+            <li><a href="framework.html">Framework</a></li>
+            <li><a href="findings.html">Findings</a></li>
+            <li><a href="people.html">People</a></li>
+            <li><a href="paper.html">Paper</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Resources</h2>
+          <ul>
+            <li><a href="https://arxiv.org/pdf/2610.09569" target="_blank" rel="noopener">Paper (arXiv)</a></li>
+            <li><a href="https://github.com/jessica-jh/RELATE" target="_blank" rel="noopener">Code on GitHub</a></li>
+            <li><a href="index.html#cite">BibTeX</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot-base">
+        <span>&copy; 2026 The RELATE authors</span>
+        <span>University of California, Santa Cruz and Stanford University</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/charts.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

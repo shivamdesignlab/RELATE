@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RELATE Paper</title>
+  <meta name="description" content="Abstract, resources, reproducibility details, and BibTeX for RELATE: An Evaluation Framework for Measuring Relational Orientation of Large Language Models.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="RELATE Paper">
+  <meta property="og:description" content="Abstract, resources, reproducibility details, and BibTeX for RELATE: An Evaluation Framework for Measuring Relational Orientation of Large Language Models.">
+  <meta property="og:image" content="assets/img/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#fbfafe">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/hedvig-letters-serif-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/ysabeau-office-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body data-page="paper">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="index.html" aria-label="RELATE, home">
+        <svg viewBox="0 0 30 20" aria-hidden="true"><defs><clipPath id="bm-h"><circle cx="11" cy="10" r="8"/></clipPath></defs><circle cx="11" cy="10" r="8" fill="#E8551F"/><circle cx="19" cy="10" r="8" fill="#4562EC"/><circle cx="19" cy="10" r="8" fill="#C2408F" clip-path="url(#bm-h)"/></svg>
+        RELATE
+      </a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-menu"><span class="bars" aria-hidden="true"></span>Menu</button>
+      <nav class="nav-menu" id="site-menu" aria-label="Main">
+        <ul class="nav-links">
+          <li><a href="index.html">Overview</a></li>
+          <li><a href="framework.html">Framework</a></li>
+          <li><a href="findings.html">Findings</a></li>
+          <li><a href="people.html">People</a></li>
+          <li><a href="paper.html" aria-current="page">Paper</a></li>
+          <li class="nav-gh-item"><a class="nav-gh" href="https://github.com/jessica-jh/RELATE" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span class="label">Code on GitHub</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <header class="page-hero page-hero--paper">
+      <div class="page-hero-art" aria-hidden="true"><img src="assets/img/hero-1600.webp" srcset="assets/img/hero-900.webp 900w, assets/img/hero-1600.webp 1600w" sizes="100vw" alt=""></div>
+      <div class="wrap">
+        <h1 class="paper-title">RELATE: An Evaluation Framework for Measuring Relational Orientation of Large Language Models</h1>
+        <ul class="author-list" aria-label="Authors">
+          <li>Shivam Shukla<sup>1*</sup></li>
+          <li>Jihye Kim<sup>1*</sup></li>
+          <li>Shubham Gaur<sup>1*</sup></li>
+          <li>Mahnaz Roshanaei<sup>1,2</sup></li>
+          <li>Magy Seif El-Nasr<sup>1</sup></li>
+        </ul>
+        <p class="author-meta"><sup>1</sup>University of California, Santa Cruz &nbsp;&nbsp; <sup>2</sup>Stanford University &nbsp;&nbsp; <sup>*</sup>Equal contribution</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="https://arxiv.org/pdf/2610.09569" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg>
+            View paper
+          </a>
+          <a class="btn btn-ghost" href="https://github.com/jessica-jh/RELATE" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            Code on GitHub
+          </a>
+          <a class="btn btn-ghost" href="#cite">Cite</a>
+        </div>
+      </div>
+    </header>
+
+    <section class="section section--tight" aria-labelledby="abstract-title">
+      <div class="wrap split">
+        <h2 id="abstract-title">Abstract</h2>
+        <div class="abstract">
+          <p>Large language models are increasingly used for emotional support, raising concern that sustained use may draw users away from their real-world relationships. Yet existing evaluations focus primarily on the safety, empathy, or helpfulness of responses, leaving a relational question under-examined: where does the model orient the user for continued support?</p>
+          <p>We introduce relational orientation, a property operationalized through two non-exclusive dimensions: inward-facing language, which positions the AI as the user's ongoing source of support, and outward-scaffolding language, which encourages real-world human connection. Grounded in psychological and sociological literature, we formalize a taxonomy of relational orientation and present RELATE, a persona-conditioned framework for measuring both at the sentence level in multi-turn dialogues.</p>
+          <p>RELATE pairs 76 help-seeking situations, adapted from naturally occurring questions, with three simulated user styles, giving 228 evaluation stimuli. We evaluate seven LLMs in dialogues of six assistant turns, yielding 1,596 dialogues and 69,194 assistant sentences, assessed by a primary rubric-based LLM judge with a secondary judge on a subset. Under automated evaluation, the share of sentences labeled inward-facing is higher at the sixth assistant turn than at the first, while the share labeled outward-scaffolding is substantially lower for hesitant, indirect simulated users than for explicit, reassurance-seeking ones. RELATE provides a reproducible framework and a sentence-level signal for auditing and steering the relational orientation of supportive LLMs.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--veil" aria-labelledby="contrib-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="contrib-title">Contributions</h2>
+        </div>
+        <ul class="contribs">
+          <li>
+            <h3>A construct and a taxonomy</h3>
+            <p>Relational orientation describes how supportive language positions the assistant and other people as sources of continued support. Drawing on psychological and social theory, we define four inward-facing categories and an outward-scaffolding criterion.</p>
+          </li>
+          <li>
+            <h3>A persona-conditioned framework</h3>
+            <p>RELATE operationalizes the taxonomy through simulated multi-turn dialogues and contextual, sentence-level evaluation, enabling comparisons across models, conversational turns, and user styles.</p>
+          </li>
+          <li>
+            <h3>An empirical evaluation</h3>
+            <p>Across seven models, inward-facing rates are higher at the final turn than at the first, and outward-scaffolding rates are lower for hesitant, indirect users than for explicit, reassurance-seeking ones.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="res-title">
+      <div class="wrap split">
+        <div>
+          <h2 id="res-title">Code and data</h2>
+          <div class="btn-row" style="margin-top:24px"><a class="btn btn-primary" href="https://github.com/jessica-jh/RELATE" target="_blank" rel="noopener">Open the repository</a></div>
+        </div>
+        <div>
+          <ul class="spec-list">
+            <li><span class="m">Configurations and prompts</span><span class="v">Stimuli, simulator, targets, judges</span></li>
+            <li><span class="m">Generation pipeline</span><span class="v">Dialogue collection with retries</span></li>
+            <li><span class="m">Sentence-level judgments</span><span class="v">From both automated judges</span></li>
+            <li><span class="m">Exclusions and samples</span><span class="v">Documented, with dialogue identifiers</span></li>
+            <li><span class="m">Analysis code</span><span class="v">Rebuilds every table and figure</span></li>
+          </ul>
+          <p class="small muted" style="margin-top:20px">CounselBench-Eval is licensed under CC BY-NC-ND 4.0, so the repository does not redistribute its question text, the rewritten stimuli, or the generated dialogues. It rebuilds the source situations from a pinned Hugging Face revision instead. Because some hosted providers do not guarantee deterministic generation, the released judgments let every analysis be reproduced without repeating API calls.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--veil" aria-labelledby="repro-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="repro-title">Reproducibility</h2>
+        </div>
+        <dl class="facts">
+          <div><dt>Dialogue seed</dt><dd>Base seed 0, with a derived seed per call</dd></div>
+          <div><dt>Judge-sample seed</dt><dd>Seed 11, 23 dialogues per model</dd></div>
+          <div><dt>Confidence intervals</dt><dd>10,000 dialogue-level bootstrap resamples, seed 20260913</dd></div>
+          <div><dt>Target generation</dt><dd>Temperature 0.5, up to 450 tokens</dd></div>
+          <div><dt>User simulator</dt><dd>GPT-4o-mini at 0.7, retries at 0.85 and 1.0</dd></div>
+          <div><dt>Primary judge</dt><dd>DeepSeek-R1-Distill-Qwen-32B on four A100 80GB GPUs</dd></div>
+          <div><dt>Judging compute</dt><dd>About 224 GPU-hours</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="ethics-title">
+      <div class="wrap split">
+        <h2 id="ethics-title">Ethics</h2>
+        <div class="prose">
+          <p>RELATE measures properties of model language. Its labels do not establish that a response is helpful, harmful, safe, or clinically appropriate, and the three user styles are interactional conditions rather than demographic or clinical profiles.</p>
+          <p>No users were recruited and no new personal conversations were collected. Dialogues were generated in a controlled simulation from transformed CounselBench-Eval situations, and released artifacts contain none of its text, the rewritten stimuli, or simulated-user messages.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--veil" id="cite" aria-labelledby="cite-title">
+      <div class="wrap cite">
+        <div>
+          <h2 id="cite-title">Cite RELATE</h2>
+          <p>If RELATE is useful in your work, please cite the paper.</p>
+        </div>
+        <pre class="code"><button class="copy-btn" type="button" data-copy="bibtex-src">Copy BibTeX</button><code class="bib"><span class="bl">@article{shukla2026relate,</span><span class="bl bl--f">  title={RELATE: An Evaluation Framework for measuring Relational Orientation of Large Language Models},</span><span class="bl bl--f">  author={Shukla, Shivam and Kim, Jihye and Gaur, Shubham and Roshanaei, Mahnaz and El-Nasr, Magy Seif},</span><span class="bl bl--f">  journal={arXiv preprint arXiv:2610.09569},</span><span class="bl bl--f">  year={2026}</span><span class="bl">}</span></code></pre>
+        <pre id="bibtex-src" hidden>@article{shukla2026relate,
+  title={RELATE: An Evaluation Framework for measuring Relational Orientation of Large Language Models},
+  author={Shukla, Shivam and Kim, Jihye and Gaur, Shubham and Roshanaei, Mahnaz and El-Nasr, Magy Seif},
+  journal={arXiv preprint arXiv:2610.09569},
+  year={2026}
+}</pre>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="foot">
+        <div>
+          <a class="brand" href="index.html" aria-label="RELATE, home">
+            <svg viewBox="0 0 30 20" aria-hidden="true"><defs><clipPath id="bm-f"><circle cx="11" cy="10" r="8"/></clipPath></defs><circle cx="11" cy="10" r="8" fill="#E8551F"/><circle cx="19" cy="10" r="8" fill="#4562EC"/><circle cx="19" cy="10" r="8" fill="#C2408F" clip-path="url(#bm-f)"/></svg>
+            RELATE
+          </a>
+          <p>An evaluation framework for measuring the relational orientation of large language models.</p>
+        </div>
+        <div>
+          <h2>Pages</h2>
+          <ul>
+            <li><a href="index.html">Overview</a></li>
+            <li><a href="framework.html">Framework</a></li>
+            <li><a href="findings.html">Findings</a></li>
+            <li><a href="people.html">People</a></li>
+            <li><a href="paper.html">Paper</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Resources</h2>
+          <ul>
+            <li><a href="https://arxiv.org/pdf/2610.09569" target="_blank" rel="noopener">Paper (arXiv)</a></li>
+            <li><a href="https://github.com/jessica-jh/RELATE" target="_blank" rel="noopener">Code on GitHub</a></li>
+            <li><a href="index.html#cite">BibTeX</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot-base">
+        <span>&copy; 2026 The RELATE authors</span>
+        <span>University of California, Santa Cruz and Stanford University</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
